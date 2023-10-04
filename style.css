@@ -1,0 +1,128 @@
+body {
+    font-family: 'Roboto', sans-serif, helvetica, arial, sans-serif;
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.content {
+    text-align: center;
+}
+
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+}
+
+.label {
+    display: block;
+    margin-bottom: 2px;
+    font-weight:700;
+    text-align: start;
+    font-size: small;
+}
+
+.labelbox{
+    text-align: left;
+    margin-left: 1%;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 10px; /* Add margin for spacing between input and button */
+}
+
+input[type="date"] {
+    width: 150px;
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-right: 10px; /* Add margin for spacing between input and button */
+    font-weight:500;
+}
+
+button[type="submit"] {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.2s;
+    height: 100%; 
+}
+
+button[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+#result, #stopwatch {
+    margin-top: 20px;
+    font-size: 18px;
+    text-align: left;
+}
+
+
+.smaller{
+    font-size: 100px;
+    color: #888888;
+    
+}
+
+.larger{
+    font-size: 200px;
+}
+
+.age{
+    text-align: left;
+    font-size: 40px;
+    margin-left: 1%;
+    color: #888888;
+}
+
+
+
+.minimalist-footer {
+
+    color: #a6a6a6;
+    text-align: center;
+    padding: 10px 0;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+
+.minimalist-footer p {
+    margin: 0;
+}
+
+.github-link {
+    color: #a6a6a6;
+    text-decoration: none;
+}
+
+.github-link:hover{
+    color: #6c6c6c;
+}
+
+
+@media screen and (max-width: 768px) {
+    .smaller{
+        font-size: 40px;
+        color: #888888;
+        
+    }
+    
+    .larger{
+        font-size: 80px;
+    }
+}
