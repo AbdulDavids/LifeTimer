@@ -1,54 +1,37 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Age Calculator</title>
-    <link rel="stylesheet" href="style.css" />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
-
-  </head>
-  <body>
-    <div class="wrapper">
-    <div class="content">
-      <div class="form-container">
-        <form id="age-form">
-
-
-
-          <div class="labelbox">
-            <label class="label" for="dob">When were you born?</label>
-          </div>
-
-
-
-          <div class="input-group">
-            <input type="date" id="dob" required />
-            <button type="submit">OK</button>
-          </div>
-
-
-
-        </form>
-      </div>
-
-      <div id="result" class="hidden"></div>
-      <div id="stopwatch" class="hidden"></div>
-    </div></div>
-
-
-
-
-
-
-
-
-
-    <script src="script.js"></script>
-
-
-    <footer class="minimalist-footer">
-        <p>&copy; 2023 <a href="https://abduldavids.github.io/" target="_blank" class="github-link">Abdul Davids</a> | <a href="https://github.com/AbdulDavids/LifeTimer/" target="_blank" class="github-link">GitHub</a></p>    </footer>
-
-  </body>
-</html>
+document.addEventListener('DOMContentLoaded', function() {
+    const ageForm = document.getElementById('age-form');
+    const dobInput = document.getElementById('dob');
+    const resultElement = document.getElementById('result');
+    const stopwatchElement = document.getElementById('stopwatch');
+    
+    ageForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        const dob = new Date(dobInput.value);
+        
+        if (!isNaN(dob.getTime())) {
+            ageForm.style.display = 'none'; // Hide the form
+            resultElement.classList.add('visible'); // Show the result
+            stopwatchElement.classList.add('visible'); // Show the stopwatch
+            stopwatchElement.classList.add('minimalist'); // Apply minimalist style
+            resultElement.innerHTML = '<span class="age">Age</span>';
+            startStopwatch(dob);
+        } else {
+            alert('Please enter a valid date of birth.');
+        }
+    });
+    
+    function startStopwatch(dob) {
+        setInterval(() => {
+            const now = new Date();
+            const ageInMillis = now - dob;
+            
+            const totalAgeInSeconds = ageInMillis / 1000; // Convert age to seconds
+            const totalAgeInYears = totalAgeInSeconds / (365 * 24 * 60 * 60); // Convert age to years
+            const integerPart = Math.floor(totalAgeInYears);
+            const decimalPart = (totalAgeInYears - integerPart).toFixed(9); // Keep 6 decimal places
+            
+            stopwatchElement.innerHTML = `<span class="larger">${integerPart}</span> <span class="smaller">.${decimalPart.substring(2)}</span>`;
+        }, 100);
+    }
+});
