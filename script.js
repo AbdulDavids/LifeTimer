@@ -31,7 +31,7 @@ document.addEventListener('DOMContentLoaded', function() {
             const integerPart = Math.floor(totalAgeInYears);
             const decimalPart = (totalAgeInYears - integerPart).toFixed(9); // Keep 6 decimal places
             
-            stopwatchElement.innerHTML = `<span class="larger">${integerPart}</span> <span class="smaller">.${decimalPart.substring(2)} years</span>`;
+            stopwatchElement.innerHTML = `<span class="larger">${integerPart}</span> <span class="smaller">.${decimalPart.substring(2)}</span>`;
         }, 100);
     }
 });
